@@ -1,7 +1,13 @@
+import Card from "../components/Card"
+import Feed from "../components/Feed"
+import Sidebar from "../components/Sidebar"
 
-const Home = () => {
+const Home = ({ showSidebar }) => {
     return (
-        <div>Home</div>
+        <div className="flex gap-1">
+            <Sidebar showSidebar={showSidebar} />
+            <Feed />
+        </div>
     )
 }
 
