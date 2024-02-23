@@ -15,7 +15,7 @@ function App() {
         <div className="h-full h-max-[1200px] bg-white shadow-md w-full">
           <Routes>
             <Route exact path="/" element={<Home showSidebar={showSidebar} />} />
-            <Route exact path="/video/:catId/:videoId" element={<Video />} />
+            <Route exact path="/video/:categoryId/:videoId" element={<Video />} />
           </Routes>
         </div>
       </div>

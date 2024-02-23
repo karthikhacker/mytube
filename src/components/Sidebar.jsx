@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
+import useFetch from '../utils/useFetch';
+import { API_KEY } from "../apiKey";
 
 const Sidebar = ({ showSidebar }) => {
+    const { data } = useFetch(`https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=${API_KEY}
+    `)
     const mainMenu = () => {
         return (
             <ul className="w-56 px-6 py-4">

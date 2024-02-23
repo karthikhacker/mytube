@@ -16,7 +16,6 @@ const Card = ({ video }) => {
                     <span className="font-thin text-sm">{moment(video?.snippet?.publishedAt).fromNow()}</span>
                 </div>
             </Link>
-
         </div>
     )
 }
