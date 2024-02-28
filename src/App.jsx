@@ -1,26 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Sidebar from "./components/Sidebar"
-import Home from './pages/Home';
-import Video from './pages/Video';
-import History from './pages/History';
-import { useState } from "react";
+import Feed from "./components/Feed"
+import Video from './components/Video';
+import Search from "./components/Search";
+import Navbar from "./components/Navbar";
+import ChannelDetails from "./components/ChannelDetails";
 
-function App() {
-  const [showSidebar, setShowSidebar] = useState(false);
-  return (
-    <BrowserRouter>
-      <div className="px-4">
-        <Navbar setShowSidebar={setShowSidebar} />
-        <div className="h-full h-max-[1200px] bg-white shadow-md w-full">
-          <Routes>
-            <Route exact path="/" element={<Home showSidebar={showSidebar} />} />
-            <Route exact path="/video/:categoryId/:videoId" element={<Video />} />
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
-  )
+const App = () => {
+    return (
+        <BrowserRouter>
+            <div className="px-4">
+                <Navbar />
+                <Routes>
+                    <Route exact path="/" element={<Feed />} />
+                    <Route exact path="/video/:id" element={<Video />} />
+                    <Route exact path="/channel/:id" element={<ChannelDetails />} />
+                    <Route exact path="/search/:term" element={<Search />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App

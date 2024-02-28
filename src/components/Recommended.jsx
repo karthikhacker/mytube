@@ -1,15 +1,21 @@
-import { API_KEY } from "../apiKey"
-import useFetch from "../utils/useFetch"
-import RecommendedCard from "./RecommendedCard";
+import axios from "axios"
+import { useEffect, useState } from "react";
+import VideoCard from "./VideoCard";
 
-const Recommended = ({ categoryId }) => {
-    //console.log(categoryId)
-    const { data, loading } = useFetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`);
-    //console.log(data);
-    if (loading) return "Loading..."
+const Recommended = ({ catId }) => {
+    const [videos, setVideos] = useState([]);
+
+    const fetchSuggestedVideo = async () => {
+        const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=US&videoCategoryId=${catId}&key=AIzaSyBwAwhZ-tCrTF8Edbv4uQB7PynqW9fcDKQ`);
+        console.log(res.data);
+        setVideos(res.data?.items);
+    }
+    useEffect(() => {
+        fetchSuggestedVideo()
+    }, [catId])
     return (
         <div>
-            {data?.map(rec => <RecommendedCard key={rec.id} rec={rec} />)}
+            {videos?.map(video => <VideoCard key={video?.id} video={video} />)}
         </div>
     )
 }
