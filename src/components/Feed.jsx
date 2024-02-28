@@ -10,7 +10,7 @@ const Feed = () => {
 
     if (loading) return 'LOADING....'
     return (
-        <div className="flex gap-1 my-1">
+        <div className="lg:flex sm:shrink-0 gap-1 my-1">
             <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             <div className="bg-white shadow-lg basis-full py-4 px-4 ">
                 <Videos data={data} />

@@ -19,9 +19,9 @@ const Video = () => {
     }, [id])
     console.log(data[0])
     return (
-        <div className="flex gap-1 mt-2">
-            <div className="basis-32 bg-white shadow-lg px-2 py-2">
-                <iframe className="rounded-xl" width="980" height="500" src={`https://www.youtube.com/embed/${id}`} ></iframe>
+        <div className="lg:flex  gap-1 mt-2">
+            <div className=" w-full flex-5 bg-white shadow-lg px-2 py-2">
+                <iframe className="rounded-xl lg:w-full max-sm:w-[450px] max-sm:mx-auto max-sm:h-[300px]" width="980" height="500" src={`https://www.youtube.com/embed/${id}`} ></iframe>
                 <div className="mt-2">
                     <h3 className="font-bold text-neutral-900">{data?.[0]?.snippet?.title}</h3>
                     <div className="flex items-center justify-between">
@@ -39,7 +39,7 @@ const Video = () => {
 
                 </div>
             </div>
-            <div className="w-full bg-white shadow-lg">
+            <div className="bg-white ">
                 <Recommended catId={data[0]?.snippet?.categoryId} />
             </div>
         </div >

@@ -32,10 +32,10 @@ const Searchbar = () => {
     }, [searchTerm])
     return (
         <div className="relative">
-            <div className="border border-gray-300 w-[600px] flex items-center justify-between px-4  rounded-3xl " onClick={() => setOpen(!open)}>
+            <div className="border border-gray-300 sm:w-32 lg:w-[600px] flex items-center justify-between px-4  rounded-3xl " onClick={() => setOpen(!open)}>
                 <input
                     type="text"
-                    className="outline-0 border-0 py-2 w-80"
+                    className="outline-0 border-0 py-2 sm:w-32 lg:w-80"
                     placeholder="Search"
                     value={searchTerm}
                     onChange={(e) => setSearchterm(e.target.value)}
